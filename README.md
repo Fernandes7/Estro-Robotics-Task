@@ -9,4 +9,8 @@ This project implements a system for storing and analyzing uptime data for devic
 - Mongoose
 
 ## Installation
-1. Clone the repository:
+1. Clone the repository:git clone https://github.com/your-username/uptime-data.git
+2. Install dependencies:
+ cd uptime-data
+npm install
+   3.Server Run commad:npm run dev
