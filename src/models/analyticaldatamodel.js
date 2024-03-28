@@ -9,7 +9,7 @@ const anylticalSchema = new mongoose.Schema(
         timestamp:{type:Number}
     }
   },
-  { timestamps:true, expireAfterSeconds: 5184000 }
+  { timestamps:true, }
 );
 
 const AnylicalSchema=mongoose.model("Analyticaldata",anylticalSchema)

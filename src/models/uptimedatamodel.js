@@ -7,7 +7,7 @@ const updataSchema=new mongoose.Schema({
         data:{type:String,enum:["connected","disconnected"]},
         timestamp:{type:Number}
     }
-},{timestamps:true,expireAfterSeconds:5184000})
+},{timestamps:true,})
 
 const UpdateSchema=mongoose.model("Uptimedata",updataSchema)
 

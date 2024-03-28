@@ -10,6 +10,7 @@ const adduptimedata = async (req, res) => {
   }
 };
 
+
 const viewUptimedata = async (req, res) => {
   try {
     if (req.user) {
@@ -32,13 +33,14 @@ const viewUptimedata = async (req, res) => {
               },
             },
           },
-        },
+        }
       ]);
       if (uptimedata) res.status(200).json({ success: true, data: uptimedata });
     }
   } catch (e) {
-    res.send(500).json({ success: false, data: e.message });
+    res.status(500).json({ success: false, data: e.message });
   }
 };
+
 
 export { adduptimedata, viewUptimedata };
