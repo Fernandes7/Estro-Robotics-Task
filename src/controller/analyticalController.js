@@ -84,4 +84,46 @@ const viewAnalyticaldata = async (req, res) => {
   }
 };
 
-export { addAnalyticaldata, viewAnalyticaldata };
+
+const addBulkdata=async(req,res)=>{
+  try{
+  const generateData=()=>{
+    const deviceId="123"
+    const data=Math.random()<0.5?0:1
+    const timestamp=new Date()
+
+    return{
+      timestamp,
+      metadata:{
+        deviceid:deviceId,
+        data:data,
+        timestamp:timestamp.getTime()
+      }
+    }
+  }
+
+  const startTime = new Date();
+    const endTime = new Date(startTime);
+    endTime.setMonth(endTime.getMonth() + 2);
+
+    const documentsToInsert = [];
+    let currentTime = new Date(startTime);
+
+    while (currentTime < endTime) {
+      const hour = currentTime.getHours();
+      if (hour >= 6 && hour < 20) {
+        documentsToInsert.push(generateData());
+      }
+      currentTime.setMinutes(currentTime.getMinutes() + 1);
+    }
+
+    const saved=await AnylicalSchema.insertMany(documentsToInsert)
+    res.send(saved)
+}
+catch(e)
+{
+  res.status(500).json({success:false,data:e.message})
+}
+}
+
+export { addAnalyticaldata, viewAnalyticaldata,addBulkdata };

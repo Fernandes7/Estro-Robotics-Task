@@ -19,7 +19,7 @@ app.use("/",AnalyticaldataRouter)
 app.use("/",UptimedataRouter)
 app.use("/",OverallRouter)
 app.use("/",UserRoutes)
-
+    
 app.get("/healthcheck",(req,res)=>{
     res.send("Server is running")
 })

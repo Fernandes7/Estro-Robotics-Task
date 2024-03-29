@@ -9,7 +9,10 @@ const anylticalSchema = new mongoose.Schema(
         timestamp:{type:Number}
     }
   },
-  { timestamps:true, }
+  { timeseries:{
+    timeField:"timestamp",
+    metaField:"metadata"
+  }, }
 );
 
 const AnylicalSchema=mongoose.model("Analyticaldata",anylticalSchema)
